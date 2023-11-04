@@ -22,15 +22,23 @@ void Player::CardOpen(int& PlayerMAXnam)
 	for (int i = 0; i < PlayerNumber; i++)
 	{
 		cout << " " << SweetClass[PlayerRank[i]] << " 『" << PlayerHand[i]<<"』";
-		if (PlayerMAXnam > 21)
-		{
-			cout << "バースト" << endl << "ゲームを終了します" << endl;
-		}
 
 	}
 	for (int i = 0; i < PlayerNumber; i++)
 	{
-		if (PlayerHand[i] > 10)
+		
+		if (PlayerHand[i] == 1)
+		{
+			if (PlayerHand[i] + PlayerMAXnam < 21)
+			{
+				PlayerHand[i] += 1;
+			}
+			else if (PlayerHand[i] + PlayerMAXnam >= 21)
+			{
+				PlayerMAXnam += 11;
+			}
+		}
+		else if (PlayerHand[i] > 10)
 		{
 			PlayerMAXnam += 10;
 		}
@@ -39,6 +47,17 @@ void Player::CardOpen(int& PlayerMAXnam)
 			PlayerMAXnam += PlayerHand[i];
 		}		
 		
+	}
+	for (int i = 0; i < PlayerNumber; i++)
+	{
+		if (PlayerHand[i] + PlayerMAXnam < 21)
+		{
+			PlayerHand[i] += 1;
+		}
+		else
+		{
+			PlayerMAXnam += 11;
+		}
 	}
 	cout << " 合計" << PlayerMAXnam << endl;
 }
