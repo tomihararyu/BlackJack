@@ -1,32 +1,29 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include<algorithm>
 #include"player.h"
 #include"card.h"
 using namespace std;
-
-void Player::DrowCard(int arr ,int rank)
+void Player::DrowCard(Card& card, int& PlayerMAXnam)
 {
-	
-	PlayerHand[PlayerNumber] = arr;
-	PlayerRank[PlayerNumber] = rank;
-	PlayerNumber++;
+	Character charcter;
+	card.CardGet(number);//1～52を取得しての継承したcharcterの変数numberに代入
+	charcter.CardGenerator(number,sweetRankNam);//numberをカットしてカードのする
+	PlayerHand[PlayerNumber] = number;//ハンドに代入
+	PlayerRank[PlayerNumber] = sweetRankNam;//役を代入
+	PlayerNumber++;//カードの枚数をカウント
 
-}
-void Player::CardOpen(int& PlayerMAXnam)
-{
+
 	const char* SweetClass[4] = { "ハート", "ダイヤ", "スペード", "クローバー" };
-
 	PlayerMAXnam = 0;
 	cout << "貴方の手札:";
-	for (int i = 0; i < PlayerNumber; i++)
+	for (int i = 0; i < PlayerNumber; i++)//持ってるカードを表示
 	{
-		cout << " " << SweetClass[PlayerRank[i]] << " 『" << PlayerHand[i]<<"』";
+		cout << " " << SweetClass[PlayerRank[i]] << " 『" << PlayerHand[i] << "』";
 
 	}
-	for (int i = 0; i < PlayerNumber; i++)
+	for (int i = 0; i < PlayerNumber; i++)//引数のMAXnamに代入
 	{
-		
+
 		if (PlayerHand[i] == 1)
 		{
 			if (PlayerHand[i] + PlayerMAXnam > 21)
@@ -45,22 +42,10 @@ void Player::CardOpen(int& PlayerMAXnam)
 		else
 		{
 			PlayerMAXnam += PlayerHand[i];
-		}		
-		
-	}
-	for (int i = 0; i < PlayerNumber; i++)
-	{
-		if (PlayerHand[i] + PlayerMAXnam < 21)
-		{
-			PlayerHand[i] += 1;
 		}
-		else
-		{
-			PlayerMAXnam += 11;
-		}
+
 	}
 	cout << " 合計" << PlayerMAXnam << endl;
 }
-
 
 

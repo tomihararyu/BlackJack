@@ -1,15 +1,16 @@
 #pragma once
-class Enemi
+#include"character.h"
+class Enemi : public Character
 {
 
 private:
 
-	int EnemiHand[10] = { 0 };
-	int EnemiNumber = 0;
-	int EnemiRank[10] = { 0 };
+	int EnemiHand[10] = { 0 };//Š‚µ‚Ä‚¢‚éD
+	int EnemiNumber = 0;//Š–‡”
+	int EnemiRank[10] = { 0 };//–ğ
+	int CardMAX=0;//–¾“ú‚â‚è‚½‚¢
 
 public:
-	void EnemiDrowCard(int arr, int rank);
-	void EnemiCardOpen(int& enemiMAXnam);
+	void EnemiDrowCard(Card& card, int& enemiMAXnam);
 
 };

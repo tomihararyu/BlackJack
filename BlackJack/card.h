@@ -2,10 +2,11 @@
 class Card
 {
 private:
-	int CaldNumber[52];
-	int m_nam = 0;
+	int* CaldNumber;
+	int m_nam = 0;//‰½–‡ƒhƒ[‚µ‚½‚©
 public:
 	
-	void cards();
 	void CardGet(int& Get);
+	Card();
+	~Card();
 };

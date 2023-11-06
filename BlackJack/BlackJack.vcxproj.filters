@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ヘッダー ファイル\char_H_finder">
+      <UniqueIdentifier>{6b064a0c-2433-4f70-8b3d-75cde028d613}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\char_cpp_finder">
+      <UniqueIdentifier>{bf268534-a0e6-48eb-96fc-ce70c23d6644}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,22 +27,28 @@
     <ClCompile Include="card.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="player.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="character.cpp">
+      <Filter>ソース ファイル\char_cpp_finder</Filter>
     </ClCompile>
     <ClCompile Include="enemi.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\char_cpp_finder</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>ソース ファイル\char_cpp_finder</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="card.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="player.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="character.h">
+      <Filter>ヘッダー ファイル\char_H_finder</Filter>
     </ClInclude>
     <ClInclude Include="enemi.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダー ファイル\char_H_finder</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>ヘッダー ファイル\char_H_finder</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

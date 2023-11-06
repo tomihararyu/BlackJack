@@ -9,112 +9,66 @@
 #include "player.h"
 #include"card.h"
 #include"enemi.h"
-using namespace std;
 const int MAX_card_num = 52;
-
-
 using namespace std;
-void CardGenerator(int& PlayerHand, int& Rank)
-{
-	const int CardRankMAX = 13;
-
-	//表示のための処理					//13以上で							//26以内
-	if (PlayerHand > CardRankMAX && PlayerHand <= (CardRankMAX * 2))
-	{
-		PlayerHand -= CardRankMAX;
-		Rank = 1;
-		//cout << ダイヤ;
-	}					//26以上で							//39以内
-	else if (PlayerHand > (CardRankMAX * 2) && PlayerHand <= (CardRankMAX * 3))
-	{
-		PlayerHand -= CardRankMAX * 2;
-		Rank = 2;
-		//cout << "スペード";
-	}							//39以上
-	else if (PlayerHand > (CardRankMAX * 3))
-	{
-		PlayerHand -= CardRankMAX * 3;
-		Rank = 3;
-		//cout << "クローバー";
-	}
-	else
-	{
-		Rank = 0;
-		//cout << "ハート";
-	}
-}
 int main()
 {
-	
-	Card card;
+	//constructorでカードを作成
 	Player player;
+	Card card;//プレイヤーとディーラーを同じオブジェクトにする為に引数として送る
 	Enemi enemi;
-	int PlayerMAXnam =0;
-	int enemiMAXnam=0;
-	card.cards();//カードの生成
+	int PlayerMAXnam =0;//ここを変えたい
+	int enemiMAXnam=0;//ここ
 	cout << "ブラックジャックを開始します。" << endl;
-		int timp1 = 0;
-		int timp2 = 0;
-		card.CardGet(timp1);//カードを取得---------------------------------------
-		CardGenerator(timp1, timp2);//カードをスライスして分ける-----------------この二つはキャラクタークラス
-		cout << "プレイヤーのdrow" << endl;
-		player.DrowCard(timp1, timp2);//クラスに格納--------------------------引数でプレイヤー示せば無理ではない
-		player.CardOpen(PlayerMAXnam);//-----------------------------------------------上にお同じく
+	cout << "プレイヤーのdrow" << endl;
+	player.DrowCard(card,PlayerMAXnam);//オブジェクトとmaxを送る
 
-		cout << "ディーラーのdrow" << endl;
-		card.CardGet(timp1);//カードを取得---------------------------------------
-		CardGenerator(timp1, timp2);//カードをスライスして分ける-----------------この二つはキャラクタークラス
-			enemi.EnemiDrowCard(timp1, timp2);
-			enemi.EnemiCardOpen(enemiMAXnam);
-			int Cin = 0;
+	cout << "ディーラーのdrow" << endl;
+	enemi.EnemiDrowCard(card,enemiMAXnam);//同じ
+	int Cin = 0;
 
-			for (;;)
+		for (;;)//プレイヤーがバーストするか、スタンドまで繰り返す。ここもclassにしたい。
+		{
+			cout << "プレイヤーのdrow" << endl;
+			player.DrowCard(card,PlayerMAXnam);
+			if (PlayerMAXnam > 21)
 			{
-				if (PlayerMAXnam > 21)
-				{
-					cout << "バースト" << endl;
-					break;
-				}
-				cout << "プレイヤーのdrow" << endl;
-				card.CardGet(timp1);//カードを取得---------------------------------------
-				CardGenerator(timp1, timp2);//カードをスライスして分ける-----------------この二つはキャラクタークラス
-				player.DrowCard(timp1, timp2);//クラスに格納--------------------------引数でプレイヤー示せば無理ではない
-				player.CardOpen(PlayerMAXnam);//-----------------------------------------------上にお同じく
-				cout << "hit=1 stands=2" << endl;
-				cin >> Cin;
+				cout << "バースト" << endl;
+				break;
+			}
+			cout << "hit=1 stands=2" << endl;
+			cin >> Cin;
 				
-				if (Cin == 1)
-				{
-
-				}
-				else
-				{
-					break;
-				}
+			if (Cin == 1)
+			{
 
 			}
-				for (;;)
+			else
+			{
+				break;
+			}
+
+		}
+			for (;;)//17以上まで引き続ける。ここもclassにするか悩む
+			{
+				enemi.EnemiDrowCard(card,enemiMAXnam);
+				if (enemiMAXnam >= 17)
 				{
-					card.CardGet(timp1);//カードを取得---------------------------------------
-					CardGenerator(timp1, timp2);//カードをスライスして分ける-----------------この二つはキャラクタークラス
-					enemi.EnemiDrowCard(timp1, timp2);
-					enemi.EnemiCardOpen(enemiMAXnam);
-					if (enemiMAXnam >= 17)
-					{
-						break;
-					}
+					break;
 				}
+			}
 
-
-
-
-	if (PlayerMAXnam > enemiMAXnam|| enemiMAXnam>21)
+	if (PlayerMAXnam > 21)//ここも変える
+	{
+		cout << "プレイヤーの敗北" << endl;
+	}
+	else if( enemiMAXnam >  21 )
 	{
 		cout << "貴方の勝利" << endl;
 	}
-	else if(PlayerMAXnam>21)
+	else if(PlayerMAXnam > enemiMAXnam)
 	{
-		cout << "プレイヤーの敗北" << endl;
+		cout << "貴方の勝利" << endl;
 	}
 	else
 	{

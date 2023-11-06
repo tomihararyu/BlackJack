@@ -1,15 +1,15 @@
 #pragma once
-class Player
+#include"character.h"
+class Player : public Character
 {
 
 private:
 
-	int PlayerHand[10] = { 0 };
-	int PlayerNumber=0;
-	int PlayerRank[10] = { 0 };
+	int PlayerHand[10] = { 0 };//Š‚µ‚Ä‚¢‚éD
+	int PlayerNumber=0;//Š–‡”
+	int PlayerRank[10] = { 0 };//–ğ
 	
 public:
-	void DrowCard(int arr, int rank);
-	void CardOpen(int& PlayerMAXnam);
+	void DrowCard(Card& card , int& PlayerMAXnam);
 	
 };
