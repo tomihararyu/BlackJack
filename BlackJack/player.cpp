@@ -28,7 +28,7 @@ void Player::DrowCard(Card& card, int& PlayerMAXnam)
 		{
 			if (11 + PlayerMAXnam > 21)
 			{
-				PlayerHand[i] += 1;
+				PlayerMAXnam += 1;
 			}
 			else if (11 + PlayerMAXnam <= 21)
 			{

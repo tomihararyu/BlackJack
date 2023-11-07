@@ -28,7 +28,7 @@ void Enemi::EnemiDrowCard(Card& card, int& enemiMAXnam)
 		{
 			if (11 + enemiMAXnam > 21)
 			{
-				EnemiHand[i] += 1;
+				enemiMAXnam += 1;
 			}
 			else if (11 + enemiMAXnam <= 21)
 			{
