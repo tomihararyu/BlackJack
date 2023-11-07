@@ -5,11 +5,10 @@
 using namespace std;
 void Player::DrowCard(Card& card, int& PlayerMAXnam)
 {
+
 	Character charcter;
-	card.CardGet(number);//1～52を取得しての継承したcharcterの変数numberに代入
-	charcter.CardGenerator(number,sweetRankNam);//numberをカットしてカードのする
-	hand[drowCardnam] = number;//ハンドに代入
-	rank[drowCardnam] = sweetRankNam;//役を代入
+	card.CardGet(hand[drowCardnam]);//1～52を取得しての継承したcharcterの変数numberに代入
+	charcter.CardGenerator(hand[drowCardnam], rank[drowCardnam]);//numberをカットしてカードのする
 	drowCardnam++;//カードの枚数をカウント
 
 
