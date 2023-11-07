@@ -45,6 +45,8 @@ void Player::DrowCard(Card& card, int& PlayerMAXnam)
 		}
 
 	}
+	
+
 	cout << " ‡Œv" << PlayerMAXnam << endl;
 }
 
