@@ -1,10 +1,10 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include<algorithm>
 #include"enemi.h"
 #include"card.h"
+#include"player.h"
 using namespace std;
-void Enemi::EnemiDrowCard(Card& card, int& enemiMAXnam)
+void Enemi::EnemiDrowCard(Card& card)
 {
 	Character charcter;
 	card.CardGet(hand[drowCardnam]);//1～52を取得しての継承したcharcterの変数numberに代入
@@ -13,7 +13,7 @@ void Enemi::EnemiDrowCard(Card& card, int& enemiMAXnam)
 
 
 	const char* SweetClass[4] = { "ハート", "ダイヤ", "スペード", "クローバー" };
-	enemiMAXnam = 0;
+	MAXnam = 0;
 	cout << "ディーラーの手札:";
 	for (int i = 0; i < drowCardnam; i++)//持ってるカードを表示
 	{
@@ -25,22 +25,22 @@ void Enemi::EnemiDrowCard(Card& card, int& enemiMAXnam)
 
 		if (hand[i] == 1)
 		{
-			enemiMAXnam += 11;
+			MAXnam += 11;
 		}
 		else if (hand[i] > 10)
 		{
-			enemiMAXnam += 10;
+			MAXnam += 10;
 		}
 		else
 		{
-			enemiMAXnam += hand[i];
+			MAXnam += hand[i];
 		}
 
 	}
 
 	for (int i = 0; i < drowCardnam; i++)
 	{
-		if (enemiMAXnam > 21)
+		if (MAXnam > 21)
 		{
 			if (hand[i] == 1)
 			{
@@ -51,5 +51,37 @@ void Enemi::EnemiDrowCard(Card& card, int& enemiMAXnam)
 	}
 
 
-	cout << " 合計" << enemiMAXnam << endl;
+	cout << " 合計" << MAXnam << endl;
+}
+void Enemi::EnemiMove(Enemi& enemi, Card& card)
+{
+	for (;;)//17以上まで引き続ける。ここもclassにするか悩む
+	{
+		enemi.EnemiDrowCard(card);
+		if (MAXnam >= 17)
+		{
+			break;
+		}
+	}
+}
+void Enemi::defeat(Player& player)
+{
+	int PlayerMAXnam = player.Win();
+
+	if (PlayerMAXnam > 21)//ここも変える
+	{
+		cout << "プレイヤーの敗北" << endl;
+	}
+	else if (MAXnam > 21)
+	{
+		cout << "貴方の勝利" << endl;
+	}
+	else if (PlayerMAXnam > MAXnam)
+	{
+		cout << "貴方の勝利" << endl;
+	}
+	else
+	{
+		cout << "プレイヤーの敗北" << endl;
+	}
 }

@@ -3,9 +3,9 @@
 class Player : public Character
 {
 
-private:
-	
 public:
-	void DrowCard(Card& card , int& PlayerMAXnam);
+	void DrowCard(Card& card);
+	int Win();
+	void SecondPlayerDrow(Player& player,Card& card);
 	
 };

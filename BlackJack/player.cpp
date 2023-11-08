@@ -3,7 +3,7 @@
 #include"player.h"
 #include"card.h"
 using namespace std;
-void Player::DrowCard(Card& card, int& PlayerMAXnam)
+void Player::DrowCard(Card& card)
 {
 
 	Character charcter;
@@ -13,7 +13,7 @@ void Player::DrowCard(Card& card, int& PlayerMAXnam)
 
 
 	const char* SweetClass[4] = { "ハート", "ダイヤ", "スペード", "クローバー" };
-	PlayerMAXnam = 0;
+	MAXnam = 0;
 	cout << "貴方の手札:";
 	for (int i = 0; i < drowCardnam; i++)//持ってるカードを表示
 	{
@@ -25,33 +25,63 @@ void Player::DrowCard(Card& card, int& PlayerMAXnam)
 
 		if (hand[i] == 1)
 		{
-			PlayerMAXnam += 11;
+			MAXnam += 11;
 		}
 		else if (hand[i] > 10)
 		{
-			PlayerMAXnam += 10;
+			MAXnam += 10;
 		}
 		else
 		{
-			PlayerMAXnam += hand[i];
+			MAXnam += hand[i];
 		}
 
 	}
 	
 	for (int i = 0; i < drowCardnam; i++)
 	{
-		if (PlayerMAXnam > 21)
+		if (MAXnam > 21)
 		{
 			if (hand[i] == 1)
 			{
-				hand[i] -= 10;
+				MAXnam -= 10;
 			}
 		}
 		
 	}
-	
 
-	cout << " 合計" << PlayerMAXnam << endl;
+	cout << " 合計" << MAXnam << endl;
+}
+void Player::SecondPlayerDrow(Player& player, Card& card)
+{
+	int Cin = 0;
+
+	for (;;)//プレイヤーがバーストするか、スタンドまで繰り返す。ここもclassにしたい。
+	{
+	
+		player.DrowCard(card);
+		if (MAXnam > 21)
+		{
+			cout << "バースト" << endl;
+			break;
+		}
+		cout << "hit=1 stands=2" << endl;
+		cin >> Cin;
+
+		if (Cin == 1)
+		{
+
+		}
+		else
+		{
+			break;
+		}
+
+	}
+}
+int Player::Win()
+{
+	return MAXnam;
 }
 
 

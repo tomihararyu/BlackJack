@@ -1,10 +1,5 @@
 ﻿// BlackJack.cpp : このファイルには 'main' 関数が含まれています。プログラム実行の開始と終了がそこで行われます。
-//
-//class内容card→player=enemy
-//cardの中身はシャッフルしたカードの中身
-//playerはenemyに配布後二枚配布して引くか引かないか聞く
-//enemyは二枚引いたあと一枚目を公開してplayerを待って17以下の間引き続ける
-//カードは52枚持ち-13,-26,-39で表現する14から25なら♥にする
+
 #include <iostream>
 #include "player.h"
 #include"card.h"
@@ -17,63 +12,20 @@ int main()
 	Player player;
 	Card card;//プレイヤーとディーラーを同じオブジェクトにする為に引数として送る
 	Enemi enemi;
-	int PlayerMAXnam =0;//ここを変えたい
-	int enemiMAXnam=0;//ここ
-	cout << "ブラックジャックを開始します。" << endl;
+		cout << "ブラックジャックを開始します。" << endl;
 	cout << "プレイヤーのdrow" << endl;
-	player.DrowCard(card,PlayerMAXnam);//オブジェクトとmaxを送る
+	player.DrowCard(card);//オブジェクトとmaxを送る
 
 	cout << "ディーラーのdrow" << endl;
-	enemi.EnemiDrowCard(card,enemiMAXnam);//同じ
-	int Cin = 0;
+	enemi.EnemiDrowCard(card);
 
-		for (;;)//プレイヤーがバーストするか、スタンドまで繰り返す。ここもclassにしたい。
-		{
-			cout << "プレイヤーのdrow" << endl;
-			player.DrowCard(card,PlayerMAXnam);
-			if (PlayerMAXnam > 21)
-			{
-				cout << "バースト" << endl;
-				break;
-			}
-			cout << "hit=1 stands=2" << endl;
-			cin >> Cin;
-				
-			if (Cin == 1)
-			{
+	cout << "プレイヤーのdrow" << endl;
+	player.SecondPlayerDrow(player, card);
 
-			}
-			else
-			{
-				break;
-			}
-
-		}
-			for (;;)//17以上まで引き続ける。ここもclassにするか悩む
-			{
-				enemi.EnemiDrowCard(card,enemiMAXnam);
-				if (enemiMAXnam >= 17)
-				{
-					break;
-				}
-			}
-
-	if (PlayerMAXnam > 21)//ここも変える
-	{
-		cout << "プレイヤーの敗北" << endl;
-	}
-	else if( enemiMAXnam >  21 )
-	{
-		cout << "貴方の勝利" << endl;
-	}
-	else if(PlayerMAXnam > enemiMAXnam)
-	{
-		cout << "貴方の勝利" << endl;
-	}
-	else
-	{
-		cout << "プレイヤーの敗北" << endl;
-	}
+	cout << "ディーラーのdrow" << endl;
+	enemi.EnemiMove(enemi, card);
+		
+		enemi.defeat(player);
 	
 
 }
