@@ -12,5 +12,4 @@ protected:
 public:
     void CardGenerator(int& nam, int& rank);
 
-
 };

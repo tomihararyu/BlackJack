@@ -30,7 +30,7 @@
     <ClCompile Include="character.cpp">
       <Filter>ソース ファイル\char_cpp_finder</Filter>
     </ClCompile>
-    <ClCompile Include="enemi.cpp">
+    <ClCompile Include="dealer.cpp">
       <Filter>ソース ファイル\char_cpp_finder</Filter>
     </ClCompile>
     <ClCompile Include="player.cpp">
@@ -44,7 +44,7 @@
     <ClInclude Include="character.h">
       <Filter>ヘッダー ファイル\char_H_finder</Filter>
     </ClInclude>
-    <ClInclude Include="enemi.h">
+    <ClInclude Include="dealer.h">
       <Filter>ヘッダー ファイル\char_H_finder</Filter>
     </ClInclude>
     <ClInclude Include="player.h">

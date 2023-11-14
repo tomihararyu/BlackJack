@@ -17,6 +17,7 @@ Card::Card() {
 
 Card:: ~Card() {
     delete[] CaldNumber; //ƒƒ‚ƒŠ‚ğ‰ğ•ú
+    CaldNumber = NULL;
 }
 void Card::CardGet(int& timp1)//ˆø”‚ÉƒJ[ƒh‚ğ“ü‚ê‚é
 {

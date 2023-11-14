@@ -1,10 +1,10 @@
 #include <iostream>
 #include<algorithm>
-#include"enemi.h"
+#include"dealer.h"
 #include"card.h"
 #include"player.h"
 using namespace std;
-void Enemi::EnemiDrowCard(Card& card)
+void Dealer::DealerDrowCard(Card& card)
 {
 	Character charcter;
 	card.CardGet(hand[drowCardnam]);//1`52‚ğæ“¾‚µ‚Ä‚ÌŒp³‚µ‚½charcter‚Ì•Ï”number‚É‘ã“ü
@@ -44,7 +44,7 @@ void Enemi::EnemiDrowCard(Card& card)
 		{
 			if (hand[i] == 1)
 			{
-				hand[i] -= 10;
+				MAXnam -= 10;
 			}
 		}
 
@@ -53,18 +53,19 @@ void Enemi::EnemiDrowCard(Card& card)
 
 	cout << " ‡Œv" << MAXnam << endl;
 }
-void Enemi::EnemiMove(Enemi& enemi, Card& card)
+void Dealer::DealerMove(Dealer& dealer, Card& card, Player& player)
 {
 	for (;;)
 	{
-		enemi.EnemiDrowCard(card);
+		dealer.DealerDrowCard(card);
 		if (MAXnam >= 17)
 		{
+			dealer.defeat(player);
 			break;
 		}
 	}
 }
-void Enemi::defeat(Player& player)
+void Dealer::defeat(Player& player)
 {
 	int PlayerMAXnam = player.Win();
 

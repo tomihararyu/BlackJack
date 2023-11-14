@@ -14,7 +14,7 @@ void Player::DrowCard(Card& card)
 
 	const char* SweetClass[4] = { "ハート", "ダイヤ", "スペード", "クローバー" };
 	MAXnam = 0;
-	cout << "貴方の手札:";
+	cout << "の手札:";
 	for (int i = 0; i < drowCardnam; i++)//持ってるカードを表示
 	{
 		cout << " " << SweetClass[rank[i]] << " 『" << hand[i] << "』";

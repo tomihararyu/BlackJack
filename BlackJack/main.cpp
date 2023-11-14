@@ -3,7 +3,7 @@
 #include <iostream>
 #include "player.h"
 #include"card.h"
-#include"enemi.h"
+#include"dealer.h"
 const int MAX_card_num = 52;
 using namespace std;
 int main()
@@ -11,23 +11,19 @@ int main()
 	//constructorでカードを作成
 	Player player;
 	Card card;//プレイヤーとディーラーを同じオブジェクトにする為に引数として送る
-	Enemi enemi;
+	Dealer enemi;
 	cout << "ブラックジャックを開始します。" << endl;
 	cout << "プレイヤーのdrow" << endl;
 	player.DrowCard(card);//オブジェクトとmaxを送る
 
 	cout << "ディーラーのdrow" << endl;
-	enemi.EnemiDrowCard(card);
+	enemi.DealerDrowCard(card);
 
 	cout << "プレイヤーのdrow" << endl;
 	player.SecondPlayerDrow(player, card);
 
 	cout << "ディーラーのdrow" << endl;
-	enemi.EnemiMove(enemi, card);
-		
-	enemi.defeat(player);
-	
-
+	enemi.DealerMove(enemi, card,player);
 }
 
 	
