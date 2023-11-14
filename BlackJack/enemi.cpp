@@ -55,7 +55,7 @@ void Enemi::EnemiDrowCard(Card& card)
 }
 void Enemi::EnemiMove(Enemi& enemi, Card& card)
 {
-	for (;;)//17ˆÈã‚Ü‚Åˆø‚«‘±‚¯‚éB‚±‚±‚àclass‚É‚·‚é‚©”Y‚Þ
+	for (;;)
 	{
 		enemi.EnemiDrowCard(card);
 		if (MAXnam >= 17)

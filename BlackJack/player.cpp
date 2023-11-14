@@ -54,7 +54,7 @@ void Player::DrowCard(Card& card)
 }
 void Player::SecondPlayerDrow(Player& player, Card& card)
 {
-	int Cin = 0;
+	int Cin;
 
 	for (;;)//プレイヤーがバーストするか、スタンドまで繰り返す。ここもclassにしたい。
 	{
