@@ -6,6 +6,7 @@
 #include"dealer.h"
 const int MAX_card_num = 52;
 using namespace std;
+
 int main()
 {
 	//constructorでカードを作成
