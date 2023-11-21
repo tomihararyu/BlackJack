@@ -22,11 +22,11 @@ void Dealer::defeat(Player& player)
 {
 	int PlayerMAXnam = player.Win();
 
-	if (PlayerMAXnam > 21)//‚±‚±‚à•Ï‚¦‚é
+	if (PlayerMAXnam > BlackJack)//‚±‚±‚à•Ï‚¦‚é
 	{
 		cout << "ƒvƒŒƒCƒ„[‚Ì”s–k" << endl;
 	}
-	else if (MAXnam > 21)
+	else if (MAXnam > BlackJack)
 	{
 		cout << "‹M•û‚ÌŸ—˜" << endl;
 	}

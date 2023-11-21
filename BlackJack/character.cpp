@@ -6,8 +6,10 @@
 using namespace std;
 Character::Character()
 {
-	fill_n(hand, 16, -1);
+	fill_n(hand, CARD_MAX, -1);
+	fill_n(rank, CARD_MAX, -1);
 	drowCardnam = 0;
+	MAXnam = 0;
 }
 void Character::CardGenerator(int& nam, int& rank)//ƒJ[ƒh‚ğŠ„‚è“–‚Ä
 {
@@ -68,7 +70,7 @@ void  Character::CardOpen()
 
 	for (int i = 0; i < drowCardnam; i++)
 	{
-		if (MAXnam > 21)
+		if (MAXnam > BlackJack)
 		{
 			if (hand[i] == 1)
 			{

@@ -1,15 +1,15 @@
 #pragma once
-
+#include"common.h"
 class Cards;
 
 class Character
 {
 
 protected:
-    int hand[12];//手札
-    int rank[12];//役
+    int hand[CARD_MAX];//手札
+    int rank[CARD_MAX];//役
     int drowCardnam;//ドローカードした数
-    int MAXnam=0;//最大の数
+    int MAXnam;//最大の数
 
 public:
     void CardGet(Cards& card);

@@ -4,9 +4,8 @@
 using namespace std;
 Cards::Cards() {
     m_nam = 0;
-    const int size = 52;
-    CaldNumber = new int[size]; // メモリを確保
-    for (int i = 0; i < size; ++i) {//1～52を代入
+    CaldNumber = new int[CARD_NUM]; // メモリを確保
+    for (int i = 0; i < CARD_NUM; ++i) {//1～52を代入
         CaldNumber[i] = i + 1;
     }
     CardsShuffle();
@@ -18,7 +17,7 @@ Cards:: ~Cards() {
 }
 void Cards::CardsShuffle()
 {
-    for (int i = 52; i > 1; --i) {
+    for (int i = CARD_NUM; i > 1; --i) {
         int a = i - 1;
         int b = rand() % i;
         swap(CaldNumber[a], CaldNumber[b]);
@@ -26,7 +25,7 @@ void Cards::CardsShuffle()
 }
 int Cards::CardsGetCard()//引数にカードを入れる
 {
-    if (m_nam >= 51)
+    if (m_nam > CARD_NUM)
     {
         cout << "エラー.カード枚数が最大に達しました。shuffleします。" << endl;
         CardsShuffle();

@@ -10,7 +10,7 @@ void Player::SecondPlayerDrow( Cards& card)
 	{
 	
 		CardGet(card);
-		if (MAXnam > 21)
+		if (MAXnam > BlackJack)
 		{
 			cout << "バースト" << endl;
 			break;

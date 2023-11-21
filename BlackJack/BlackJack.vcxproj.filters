@@ -50,5 +50,8 @@
     <ClInclude Include="player.h">
       <Filter>ヘッダー ファイル\char_H_finder</Filter>
     </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
