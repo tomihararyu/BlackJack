@@ -4,6 +4,14 @@
 #include"cards.h"
 #include"player.h"
 using namespace std;
+Dealer::Dealer():Character("Dealer")
+{
+
+}
+Dealer::~Dealer()
+{
+
+}
 
 void Dealer::DealerMove(Dealer& dealer, Cards& card, Player& player)
 {
@@ -22,6 +30,7 @@ void Dealer::defeat(Player& player)
 {
 	int PlayerMAXnam = player.Win();
 
+	cout << "\n\n\n\nŒ‹‰Ê:";
 	if (PlayerMAXnam > BlackJack)//‚±‚±‚à•Ï‚¦‚é
 	{
 		cout << "ƒvƒŒƒCƒ„[‚Ì”s–k" << endl;

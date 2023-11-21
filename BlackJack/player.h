@@ -4,6 +4,8 @@ class Player : public Character
 {
 
 public:
+	Player();
+	~Player();
 	int Win();
 	void SecondPlayerDrow(Cards& card);
 	

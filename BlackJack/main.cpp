@@ -14,16 +14,20 @@ int main()
 	Player player;
 	Cards card;//プレイヤーとディーラーを同じオブジェクトにする為に引数として送る
 	Dealer enemi;
-	cout << "ブラックジャックを開始します。" << endl;
+	cout << "ブラックジャックを開始します。\n" << endl;
+	cout << "====================" << endl;
 	cout << "プレイヤーのdrow" << endl;
 	player.CardGet(card);//オブジェクトとmaxを送る
 
+	cout << "====================" << endl;
 	cout << "ディーラーのdrow" << endl;
 	enemi.CardGet(card);
 
+	cout << "====================" << endl;
 	cout << "プレイヤーのdrow" << endl;
 	player.SecondPlayerDrow(card);
 
+	cout << "====================" << endl;
 	cout << "ディーラーのdrow" << endl;
 	enemi.DealerMove(enemi,card,player);
 }

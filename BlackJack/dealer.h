@@ -8,4 +8,6 @@ private:
 	void defeat(Player& player);
 public:
 	void DealerMove(Dealer& enemi, Cards& card ,Player& player);
+	Dealer();
+	virtual ~Dealer();
 };

@@ -1,21 +1,30 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <iostream>
 #include<algorithm>
 #include"character.h"
 #include"cards.h"
 
 using namespace std;
-Character::Character()
+Character::Character(const char* pName)
 {
 	fill_n(hand, CARD_MAX, -1);
 	fill_n(rank, CARD_MAX, -1);
 	drowCardnam = 0;
 	MAXnam = 0;
+	_pName = new char[strlen(pName) + 1];
+	strcpy(_pName, pName);
+
+}
+Character::~Character()
+{
+	delete _pName;
+	_pName = nullptr;
 }
 void Character::CardGenerator(int& nam, int& rank)//カードを割り当て
 {
 
 	const int CardRankMAX = 13;
-	//表示のための処理					//13以上で							//26以内
 	if (nam > CardRankMAX && nam <= (CardRankMAX * 2))
 	{
 		nam -= CardRankMAX;
@@ -44,10 +53,10 @@ void  Character::CardOpen()
 {
 	MAXnam = 0;
 	const char* SweetClass[4] = { "ハート", "ダイヤ", "スペード", "クローバー" };
-	cout << "の手札:";
+	cout << "手札:";
 	for (int i = 0; i < drowCardnam; i++)//持ってるカードを表示
 	{
-		cout << " " << SweetClass[rank[i]] << " 『" << hand[i] << "』";
+		cout << " " << SweetClass[rank[i]] << "『" << hand[i] << "』";
 
 	}
 	for (int i = 0; i < drowCardnam; i++)//引数のMAXnamに代入
@@ -79,7 +88,7 @@ void  Character::CardOpen()
 		}
 
 	}
-	cout << " 合計" << MAXnam << endl;
+	cout << "\n合計" << MAXnam << endl;
 }
 void Character::CardGet(Cards& card)
 {

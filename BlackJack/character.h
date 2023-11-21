@@ -13,10 +13,11 @@ protected:
 
 public:
     void CardGet(Cards& card);
-    Character();
+    Character(const char* pName);
+    ~Character();
 
 private:
     void CardOpen();
     void CardGenerator(int& nam, int& rank);
-
+    char* _pName;//–¼‘O
 };

@@ -3,6 +3,14 @@
 #include"player.h"
 #include"cards.h"
 using namespace std;
+Player::Player() :Character("Player")
+{
+
+}
+Player::~Player()
+{
+
+}
 void Player::SecondPlayerDrow( Cards& card)
 {
 	int Cin;
