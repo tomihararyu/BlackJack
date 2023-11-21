@@ -2,7 +2,13 @@
 #include<algorithm>
 #include"character.h"
 #include"cards.h"
+
 using namespace std;
+Character::Character()
+{
+	fill_n(hand, 16, -1);
+	drowCardnam = 0;
+}
 void Character::CardGenerator(int& nam, int& rank)//カードを割り当て
 {
 
@@ -76,7 +82,7 @@ void  Character::CardOpen()
 void Character::CardGet(Cards& card)
 {
 
-	card.CardGet(hand[drowCardnam]);//1～52を取得しての継承したcharcterの変数numberに代入
+	hand[drowCardnam] = card.CardsGetCard();
 	CardGenerator(hand[drowCardnam], rank[drowCardnam]);//numberをカットしてカードのする
 	drowCardnam++;//カードの枚数をカウント
 	CardOpen();

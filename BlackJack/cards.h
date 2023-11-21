@@ -3,11 +3,13 @@ class Cards
 {
 private:
 	int* CaldNumber;
-	int m_nam = 0;//何枚ドローしたか
+	int m_nam ;//何枚ドローされているか
+
+private:
+	void CardsShuffle();
 public:
-	
-	void CardGet(int& Get);
+	int CardsGetCard();
+
 	Cards();
-	~Cards();
-	//virtual ~Cards();
+	virtual ~Cards();
 };

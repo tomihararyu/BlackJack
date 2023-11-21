@@ -14,6 +14,7 @@ void Dealer::DealerMove(Dealer& dealer, Cards& card, Player& player)
 		{
 			break;
 		}
+
 	}
 	dealer.defeat(player);
 }

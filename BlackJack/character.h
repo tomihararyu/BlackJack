@@ -1,5 +1,7 @@
 #pragma once
-#include"cards.h"
+
+class Cards;
+
 class Character
 {
 
@@ -11,6 +13,7 @@ protected:
 
 public:
     void CardGet(Cards& card);
+    Character();
 
 private:
     void CardOpen();

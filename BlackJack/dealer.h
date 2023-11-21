@@ -1,6 +1,7 @@
 #pragma once
 #include"character.h"
-#include"player.h"
+
+class Player;
 class Dealer : public Character
 {
 private:

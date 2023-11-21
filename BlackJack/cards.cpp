@@ -3,23 +3,34 @@
 #include"cards.h"
 using namespace std;
 Cards::Cards() {
-  const int size = 52;
+    m_nam = 0;
+    const int size = 52;
     CaldNumber = new int[size]; // メモリを確保
     for (int i = 0; i < size; ++i) {//1～52を代入
         CaldNumber[i] = i + 1;
     }
-    for (int i = size; i > 1; --i) {//シャッフル
-        swap(CaldNumber[rand() % (i - 1)], CaldNumber[i - 1]);
-    }
-    
+    CardsShuffle();
 }
 
 Cards:: ~Cards() {
     delete[] CaldNumber; //メモリを解放
     CaldNumber = NULL;
 }
-void Cards::CardGet(int& timp1)//引数にカードを入れる
+void Cards::CardsShuffle()
 {
-   timp1  = CaldNumber[m_nam];
-	m_nam++;//何枚目かカウント
+    for (int i = 52; i > 1; --i) {
+        int a = i - 1;
+        int b = rand() % i;
+        swap(CaldNumber[a], CaldNumber[b]);
+    }
+}
+int Cards::CardsGetCard()//引数にカードを入れる
+{
+    if (m_nam >= 51)
+    {
+        cout << "エラー.カード枚数が最大に達しました。shuffleします。" << endl;
+        CardsShuffle();
+   }
+    m_nam++;//何枚目かカウント
+    return CaldNumber[m_nam - 1];
 }
