@@ -6,6 +6,5 @@ class Dealer : public Character
 private:
 	void defeat(Player& player);
 public:
-	void DealerDrowCard(Card& card);
-	void DealerMove(Dealer& enemi, Card& card ,Player& player);
+	void DealerMove(Dealer& enemi, Cards& card ,Player& player);
 };

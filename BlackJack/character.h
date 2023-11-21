@@ -1,5 +1,5 @@
 #pragma once
-#include"card.h"
+#include"cards.h"
 class Character
 {
 
@@ -10,6 +10,10 @@ protected:
     int MAXnam=0;//Å‘å‚Ì”
 
 public:
+    void CardGet(Cards& card);
+
+private:
+    void CardOpen();
     void CardGenerator(int& nam, int& rank);
 
 };

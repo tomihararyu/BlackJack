@@ -1,5 +1,5 @@
 #pragma once
-class Card
+class Cards
 {
 private:
 	int* CaldNumber;
@@ -7,6 +7,7 @@ private:
 public:
 	
 	void CardGet(int& Get);
-	Card();
-	~Card();
+	Cards();
+	~Cards();
+	//virtual ~Cards();
 };
