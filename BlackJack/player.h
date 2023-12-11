@@ -7,6 +7,6 @@ public:
 	Player();
 	~Player();
 	int Win();
-	void SecondPlayerDrow(Cards& card);
+	void SecondPlayerDrow(OPcard& card);
 	
 };

@@ -1,8 +1,6 @@
 #include <iostream>
 #include<algorithm>
 #include"dealer.h"
-#include"cards.h"
-#include"player.h"
 using namespace std;
 Dealer::Dealer():Character("Dealer")
 {
@@ -13,22 +11,24 @@ Dealer::~Dealer()
 
 }
 
-void Dealer::DealerMove(Dealer& dealer, Cards& card, Player& player)
+void Dealer::DealerMove(Dealer& dealer, OPcard& opcard, Player& player)
 {
 	for (;;)
 	{
-		dealer.CardGet(card);
+		dealer.CardGet(opcard);
+		cout << "‡Œv" << CrowCard(opcard) << endl;
 		if (MAXnam >= 17)
 		{
 			break;
 		}
 
 	}
-	dealer.defeat(player);
+	dealer.defeat(player,opcard);
 }
-void Dealer::defeat(Player& player)
+void Dealer::defeat(Player& player,OPcard& opcard)
 {
-	int PlayerMAXnam = player.Win();
+	int PlayerMAXnam = player.CrowCard(opcard);
+	cout << PlayerMAXnam << "‘Î" << CrowCard(opcard) << "‚Å" << endl;
 
 	cout << "\n\n\n\nŒ‹‰Ê:";
 	if (PlayerMAXnam > BlackJack)//‚±‚±‚à•Ï‚¦‚é

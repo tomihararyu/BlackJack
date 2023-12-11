@@ -1,13 +1,13 @@
 #pragma once
 #include"character.h"
+#include"player.h"
 
-class Player;
 class Dealer : public Character
 {
 private:
-	void defeat(Player& player);
+	void defeat(Player& player,OPcard& opcard);
 public:
-	void DealerMove(Dealer& enemi, Cards& card ,Player& player);
+	void DealerMove(Dealer& enemi, OPcard& opcard ,Player& player);
 	Dealer();
 	virtual ~Dealer();
 };

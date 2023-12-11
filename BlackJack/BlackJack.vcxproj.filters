@@ -36,6 +36,9 @@
     <ClCompile Include="player.cpp">
       <Filter>ソース ファイル\char_cpp_finder</Filter>
     </ClCompile>
+    <ClCompile Include="OPcard.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cards.h">
@@ -51,6 +54,9 @@
       <Filter>ヘッダー ファイル\char_H_finder</Filter>
     </ClInclude>
     <ClInclude Include="common.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="OPcard.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

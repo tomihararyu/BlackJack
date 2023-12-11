@@ -2,8 +2,8 @@
 
 #include <iostream>
 #include "player.h"
-#include"cards.h"
 #include"dealer.h"
+#include"OPcard.h"
 const int MAX_card_num = 52;
 using namespace std;
 
@@ -12,24 +12,24 @@ int main()
 	srand((unsigned int)time(NULL));//初期化
 	//constructorでカードを作成
 	Player player;
-	Cards card;//プレイヤーとディーラーを同じオブジェクトにする為に引数として送る
+	OPcard opcard;//プレイヤーとディーラーを同じオブジェクトにする為に引数として送る
 	Dealer enemi;
 	cout << "ブラックジャックを開始します。\n" << endl;
 	cout << "====================" << endl;
 	cout << "プレイヤーのdrow" << endl;
-	player.CardGet(card);//オブジェクトとmaxを送る
+	player.CardGet(opcard);//オブジェクトとmaxを送る
 
 	cout << "====================" << endl;
 	cout << "ディーラーのdrow" << endl;
-	enemi.CardGet(card);
+	enemi.CardGet(opcard);
 
 	cout << "====================" << endl;
 	cout << "プレイヤーのdrow" << endl;
-	player.SecondPlayerDrow(card);
+	player.SecondPlayerDrow(opcard);
 
 	cout << "====================" << endl;
 	cout << "ディーラーのdrow" << endl;
-	enemi.DealerMove(enemi,card,player);
+	enemi.DealerMove(enemi,opcard,player);
 }
 
 	

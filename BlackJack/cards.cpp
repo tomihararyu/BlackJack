@@ -22,14 +22,17 @@ void Cards::CardsShuffle()
         int b = rand() % i;
         swap(CaldNumber[a], CaldNumber[b]);
     }
+    for (int i = 0; i < CARD_NUM; ++i) {//1～52を代入
+        cout << CaldNumber[i] << " ";
+    }
 }
 int Cards::CardsGetCard()//引数にカードを入れる
 {
     if (m_nam > CARD_NUM)
     {
-        cout << "エラー.カード枚数が最大に達しました。shuffleします。" << endl;
+        cout << "エラー.カード枚数が最大に達しました。shuffleします。" << endl;//ここで配列のサイズを拡大する
         CardsShuffle();
    }
     m_nam++;//何枚目かカウント
-    return CaldNumber[m_nam - 1];
+    return m_nam - 1;
 }

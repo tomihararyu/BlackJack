@@ -1,23 +1,21 @@
 #pragma once
 #include"common.h"
-class Cards;
+class OPcard;
 
 class Character
 {
 
 protected:
-    int hand[CARD_MAX];//手札
-    int rank[CARD_MAX];//役
+    int CardNumRank[52];
     int drowCardnam;//ドローカードした数
     int MAXnam;//最大の数
 
 public:
-    void CardGet(Cards& card);
+    int CrowCard(OPcard& OPcard);
+    void CardGet(OPcard& OPcard);
     Character(const char* pName);
     ~Character();
 
 private:
-    void CardOpen();
-    void CardGenerator(int& nam, int& rank);
     char* _pName;//名前
 };

@@ -2,7 +2,7 @@
 #include"common.h"
 class Cards
 {
-private:
+protected:
 	int* CaldNumber;
 	int m_nam ;//‰½–‡ƒhƒ[‚³‚ê‚Ä‚¢‚é‚©
 
