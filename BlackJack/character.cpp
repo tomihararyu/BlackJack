@@ -21,8 +21,8 @@ Character::~Character()
 }
 int Character::CrowCard(OPcard& OPcard)
 {
-	int MAXnam = 0;
 	int timp=0;
+	MAXnam = 0;
 	for (int i = 0; i < drowCardnam; i++)
 	{
 		timp = OPcard.OPCardGet(CardNumRank[i]);

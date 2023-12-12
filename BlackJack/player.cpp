@@ -18,6 +18,7 @@ void Player::SecondPlayerDrow(OPcard& card)
 	{
 	
 		CardGet(card);
+		card.CardGen();
 		cout << "‡Œv" << CrowCard(card) << endl;
 		if (MAXnam > BlackJack)
 		{

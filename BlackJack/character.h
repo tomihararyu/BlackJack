@@ -11,10 +11,10 @@ protected:
     int MAXnam;//Å‘å‚Ì”
 
 public:
-    int CrowCard(OPcard& OPcard);
     void CardGet(OPcard& OPcard);
     Character(const char* pName);
     ~Character();
+    int CrowCard(OPcard& OPcard);
 
 private:
     char* _pName;//–¼‘O

@@ -1,5 +1,6 @@
 #pragma once
 #include"character.h"
+#include"OPcard.h"
 class Player : public Character
 {
 

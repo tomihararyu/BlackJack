@@ -16,6 +16,7 @@ void Dealer::DealerMove(Dealer& dealer, OPcard& opcard, Player& player)
 	for (;;)
 	{
 		dealer.CardGet(opcard);
+		opcard.CardGen();
 		cout << "‡Œv" << CrowCard(opcard) << endl;
 		if (MAXnam >= 17)
 		{
@@ -47,4 +48,5 @@ void Dealer::defeat(Player& player,OPcard& opcard)
 	{
 		cout << "ƒvƒŒƒCƒ„[‚Ì”s–k" << endl;
 	}
+	opcard.a();
 }
